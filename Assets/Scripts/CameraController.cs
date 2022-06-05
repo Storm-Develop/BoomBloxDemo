@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MouseClicks
+{
+    LeftClick = 0,
+    RightClick = 1,
+    MiddleClick =2
+}
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
@@ -11,9 +17,6 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Transform target;
 
-    private const int MiddleClick = 2;
-
-    private const int RightClick = 1;
     private float turnSpeed = 5f;
 
     private Vector3 previousPos;
@@ -27,12 +30,12 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         //TODO Implement Command Pattern;
-        if (Input.GetMouseButtonDown(RightClick) || (Input.GetMouseButton(MiddleClick)))
+        if (Input.GetMouseButtonDown((int)MouseClicks.RightClick) || (Input.GetMouseButton((int)MouseClicks.MiddleClick)))
         {
             previousPos = mainCamera.ScreenToViewportPoint(Input.mousePosition * Time.deltaTime);
         }
          
-        if (Input.GetMouseButton(RightClick))
+        if (Input.GetMouseButton((int)MouseClicks.RightClick))
         {
             Vector3 direction = previousPos = mainCamera.ScreenToViewportPoint(Input.mousePosition * Time.deltaTime) ;
 
@@ -48,7 +51,7 @@ public class CameraController : MonoBehaviour
 
         }
 
-        if ((Input.GetMouseButton(MiddleClick)))
+        if ((Input.GetMouseButton((int)MouseClicks.MiddleClick)))
         {
             Vector3 direction = previousPos = mainCamera.ScreenToViewportPoint(Input.mousePosition * Time.deltaTime);
 
