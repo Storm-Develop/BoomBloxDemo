@@ -42,10 +42,9 @@ public class MegaGun : MonoBehaviour
 
         var bullet = Instantiate(bulletPrefab);
 
-        Bullet bulletObj = bulletPrefab.GetComponent<Bullet>();
+        Bullet bulletObj = bullet.GetComponent<Bullet>();
         bulletObj.MoveBullet(ray.origin,ray.direction, mainCamera.transform.eulerAngles.y);
 
-        Destroy(bullet);
 
 
         /*     RaycastHit hit;

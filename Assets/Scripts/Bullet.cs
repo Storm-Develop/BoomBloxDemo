@@ -6,9 +6,6 @@ public class Bullet : MonoBehaviour
 {
 
     [SerializeField]
-    private float customBulletRotation = 180f;
-
-    [SerializeField]
     private float bulletSpeed = 50f;
 
     [SerializeField]
@@ -17,13 +14,14 @@ public class Bullet : MonoBehaviour
     private Rigidbody bulletRigidBody;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         bulletRigidBody = GetComponent<Rigidbody>();
     }
 
     public void MoveBullet(Vector3 initPostion, Vector3 force, float rotationAngle)
     {
+
         Vector3 rotation = bulletRigidBody.transform.rotation.eulerAngles;
 
         bulletRigidBody.transform.rotation = Quaternion.Euler(rotation.x, rotationAngle, rotation.z);
@@ -33,13 +31,13 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        StartCoroutine(DestroyBullet(gameObject, bulletSpawnDuration));
+        StartCoroutine(DestroyBullet(bulletSpawnDuration));
     }
 
-    private IEnumerator DestroyBullet(GameObject bullet, float delay)
+    private IEnumerator DestroyBullet( float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        Destroy(bullet);
+        Destroy(bulletRigidBody.gameObject);
     }
 }
