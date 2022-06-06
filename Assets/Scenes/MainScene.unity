@@ -771,6 +771,7 @@ MonoBehaviour:
   bulletSpeed: 10
   bulletSpeedMax: 100
   bulletHighThreshold: 0.7
+  icrementBulletSpeed: 40
   bulletStrengthIndicator: {fileID: 1793981586}
   bulletfillImage: {fileID: 1975257059}
   extremeColor: {r: 1, g: 0.21704945, b: 0.11792451, a: 1}
@@ -896,7 +897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &936154226
 RectTransform:
   m_ObjectHideFlags: 0
@@ -906,7 +907,7 @@ RectTransform:
   m_GameObject: {fileID: 936154225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433888781}
   m_RootOrder: 0
@@ -1364,7 +1365,7 @@ RectTransform:
   m_GameObject: {fileID: 1793981584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 2, z: 1}
   m_Children:
   - {fileID: 420268127}
   - {fileID: 691917529}
@@ -1606,7 +1607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901874140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.244, z: 0}
+  m_LocalPosition: {x: -3.51, y: -5.244, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
