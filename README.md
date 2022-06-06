@@ -1,7 +1,7 @@
 # BoomBloxDemo
 ## Release
 [Download BoomBloxDemo here](https://github.com/Storm-Develop/BoomBloxDemo/releases/tag/v1.0)
-
+[Preview video](https://youtu.be/703Htv5oOoE)
 ## Gameplay instructions
 
 * Press Right Click to move along horizontal axe
