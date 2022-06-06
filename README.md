@@ -1,4 +1,6 @@
 # BoomBloxDemo
+## Release
+[Download BoomBloxDemo exe here](https://github.com/Storm-Develop/BoomBloxDemo/releases/tag/v1.0)
 
 ## Gameplay instructions
 
