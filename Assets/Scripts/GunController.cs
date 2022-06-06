@@ -27,6 +27,9 @@ public class GunController : MonoBehaviour
     private float bulletHighThreshold = 0.7f;
 
     [SerializeField]
+    private float icrementBulletSpeed = 40f;
+
+    [SerializeField]
     private Slider bulletStrengthIndicator;
 
     [SerializeField]
@@ -50,7 +53,7 @@ public class GunController : MonoBehaviour
         {
             if (bulletSpeed < bulletSpeedMax)
             {
-                bulletSpeed+=0.1f;
+                bulletSpeed+= icrementBulletSpeed* Time.deltaTime;
                 UpdateBulletStrengthIndicator();
             }
 
