@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -20,6 +21,9 @@ public class Target : MonoBehaviour
     [SerializeField]
     private float minCollideGroundSpeed = 5f;
 
+    [SerializeField]
+    private float targetDestroyDuration = 5f;
+
     private void Start()
     {
         particleSystem = GetComponentInChildren<ParticleSystem>();
@@ -38,8 +42,21 @@ public class Target : MonoBehaviour
 
     private void TargetDestroy()
     {
+        if (meshRenderer.enabled)
+        {
+            GlobalScoreSystem.NumberBlocksLeft -= 1;
+            GlobalScoreSystem.PlayerScore += 1;
+        }
         meshRenderer.enabled=false;
         particleSystem.Play();
+        StartCoroutine(DestroyTargetGameObject(targetDestroyDuration));
+    }
+
+    private IEnumerator DestroyTargetGameObject(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Destroy(meshRenderer.gameObject);
     }
 
     void OnCollisionEnter(Collision collision)

@@ -45,6 +45,7 @@ public class MegaGun : MonoBehaviour
         Bullet bulletObj = bullet.GetComponent<Bullet>();
         bulletObj.MoveBullet(ray.origin,ray.direction, mainCamera.transform.eulerAngles.y);
 
+        GlobalScoreSystem.BulletsUsed += 1;
 
 
         /*     RaycastHit hit;
