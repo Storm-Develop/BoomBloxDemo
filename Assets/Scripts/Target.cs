@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float Health = 50f;
+    public float TotalHealth = 50f;
     private ParticleSystem particleSystem;
     private MeshRenderer meshRenderer;
 
@@ -19,10 +19,13 @@ public class Target : MonoBehaviour
     private float minCollideSpeed=20f;
 
     [SerializeField]
-    private float minCollideGroundSpeed = 5f;
+    private float minCollideGroundSpeed = 0f;
 
     [SerializeField]
     private float targetDestroyDuration = 5f;
+
+    [SerializeField]
+    private float groundReference = -10f;
 
     private void Start()
     {
@@ -30,11 +33,17 @@ public class Target : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         particleSystem.Stop();
     }
-
+    private void Update()
+    {
+        if (gameObject.transform.position.y < groundReference && gameObject.transform.localPosition.y < groundReference)
+        {
+            TakeDamage(TotalHealth);
+        }
+    }
     public void TakeDamage(float amount)
     {
-        Health -= amount;
-        if (Health <=0f)
+        TotalHealth -= amount;
+        if (TotalHealth <=0f)
         {
             TargetDestroy();
         }
@@ -65,7 +74,7 @@ public class Target : MonoBehaviour
         {
             if (collision.relativeVelocity.magnitude > minCollideSpeed)
             {
-                TakeDamage(50f);
+                TakeDamage(TotalHealth);
             }
             else
             {
@@ -76,9 +85,9 @@ public class Target : MonoBehaviour
         {
             if (collision.relativeVelocity.magnitude > minCollideGroundSpeed)
             {
-                TakeDamage(50f);
+                TakeDamage(TotalHealth);
             }
         }
-       //     audioSource.Play(); //TODO Plat audio
+       //     audioSource.Play(); //TODO Play audio
     }
 }

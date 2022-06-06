@@ -6,9 +6,6 @@ public class Bullet : MonoBehaviour
 {
 
     [SerializeField]
-    private float bulletSpeed = 50f;
-
-    [SerializeField]
     private float bulletSpawnDuration = 3f;
 
     private Rigidbody bulletRigidBody;
@@ -19,7 +16,7 @@ public class Bullet : MonoBehaviour
         bulletRigidBody = GetComponent<Rigidbody>();
     }
 
-    public void MoveBullet(Vector3 initPostion, Vector3 force, float rotationAngle)
+    public void MoveBullet(Vector3 initPostion, Vector3 force, float rotationAngle , float bulletSpeed)
     {
 
         Vector3 rotation = bulletRigidBody.transform.rotation.eulerAngles;

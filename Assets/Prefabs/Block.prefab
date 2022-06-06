@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6970f5fc95adfeb4b8ae0d3b4fdd9d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 50
+  TotalHealth: 50
+  groundReference: {fileID: 7625121864205509834, guid: 5b025239e169ad64b8e63ac41d1e2897, type: 3}
   booletColiderName: Bullet
   groundColiderName: Ground
   minCollideSpeed: 20
