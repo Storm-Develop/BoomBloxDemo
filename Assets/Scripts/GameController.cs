@@ -19,6 +19,16 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI gameUpdatesText;
 
+    [SerializeField]
+    private GameObject levelOneBlocksPrefab;
+
+    [SerializeField]
+    private CameraController cameraController;
+
+    private GameObject currentLevelBlock;
+
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,8 +36,33 @@ public class GameController : MonoBehaviour
         GlobalScoreSystem.BulletsUsedChanged.AddListener(BulletsUsedChanged);
         GlobalScoreSystem.NumberBlocksLeftChanged.AddListener(NumberBlocksLeftChanged);
         GlobalScoreSystem.PlayerScoreChanged.AddListener(PlayerScoreChanged);
+
+        ResetGame();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            ResetGame();
+        }
+    }
+
+    private void ResetGame()
+    {
+        if (currentLevelBlock!=null)
+        {
+            Destroy(currentLevelBlock);
+        }
+
+        GlobalScoreSystem.BulletsUsed = 0;
+        GlobalScoreSystem.NumberBlocksLeft = 0;
+        GlobalScoreSystem.PlayerScore = 0;
         gameUpdatesText.text = string.Empty;
         GlobalScoreSystem.NumberBlocksLeft = totalNumberBlocks;
+
+        currentLevelBlock = Instantiate(levelOneBlocksPrefab, gameObject.transform);
+        cameraController.Target = (levelOneBlocksPrefab.transform);
     }
 
     private void PlayerScoreChanged()
