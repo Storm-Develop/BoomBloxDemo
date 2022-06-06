@@ -6,8 +6,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
-    [SerializeField]
-    private Transform target;
+    public Transform Target;
 
     private Vector3 previousPos;
 
@@ -35,7 +34,7 @@ public class CameraController : MonoBehaviour
     {
         Vector3 direction = previousPos = mainCamera.ScreenToViewportPoint(Input.mousePosition * Time.deltaTime);
 
-        mainCamera.transform.position = target.position;
+        mainCamera.transform.position = Target.position;
 
         if (moveDirection==MoveDirection.Horizontal)
         {
