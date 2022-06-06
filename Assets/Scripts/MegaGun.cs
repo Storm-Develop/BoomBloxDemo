@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using BoomBoxEnums;
+
 using UnityEngine;
 
 public class MegaGun : MonoBehaviour
