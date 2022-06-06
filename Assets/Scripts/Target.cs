@@ -1,5 +1,4 @@
 
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -88,6 +87,5 @@ public class Target : MonoBehaviour
                 TakeDamage(TotalHealth);
             }
         }
-       //     audioSource.Play(); //TODO Play audio
     }
 }

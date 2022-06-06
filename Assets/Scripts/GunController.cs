@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class GunController : MonoBehaviour
 {
-    public float damage = 10f; //TODO make it adjustable
-    public float range = 100f; //TODO make it adjustable
+    public float damage = 10f;
+    public float range = 100f;
 
     [SerializeField]
     private GameObject bulletPrefab;
@@ -84,7 +84,6 @@ public class GunController : MonoBehaviour
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
             bool hitTarget = Physics.Raycast(ray, out hit, range);
-
 
             var bullet = Instantiate(bulletPrefab);
 
